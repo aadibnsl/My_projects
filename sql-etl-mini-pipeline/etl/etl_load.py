@@ -1,7 +1,6 @@
 import pandas as pd
 import mysql.connector
 
-# MySQL connection
 conn = mysql.connector.connect(
     host="127.0.0.1",
     user="root",
@@ -10,32 +9,33 @@ conn = mysql.connector.connect(
 )
 cursor = conn.cursor()
 
-# Load CSV files
-employees = pd.read_csv("employees.csv")
-salaries = pd.read_csv("salaries.csv")
-attendance = pd.read_csv("attendance.csv")
+employees = pd.read_csv("../data/employees.csv", encoding="latin1")
+salaries = pd.read_csv("../data/salaries.csv", encoding="latin1")
+attendance = pd.read_csv("../data/attendance.csv", encoding="latin1")
 
 def load_to_staging(df, table):
+    print(f"Loading {table} with columns:", df.columns.tolist())
+
     cursor.execute(f"TRUNCATE TABLE {table}")
+
+    cols = ",".join(df.columns)
+    placeholders = ",".join(["%s"] * len(df.columns))
+    sql = f"INSERT INTO {table} ({cols}) VALUES ({placeholders})"
+
     for _, row in df.iterrows():
-        placeholders = ','.join(['%s'] * len(row))
-        sql = f"INSERT INTO {table} VALUES ({placeholders})"
         cursor.execute(sql, tuple(row))
+
     conn.commit()
 
-# Load staging tables
 load_to_staging(employees, "stg_employees")
 load_to_staging(salaries, "stg_salaries")
 load_to_staging(attendance, "stg_attendance")
 
-print("Staging tables loaded successfully!")
-
-# Run stored procedures
 cursor.callproc("sp_load_employees")
 cursor.callproc("sp_load_salaries")
 cursor.callproc("sp_load_attendance")
 
-print("ETL completed!")
+print("✅ ETL completed successfully")
 
 cursor.close()
 conn.close()
