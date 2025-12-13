@@ -14,7 +14,7 @@ It simulates a real-world data engineering workflow similar to enterprise EDW pi
 - CSV files as source data
 
 ---
-
+```
 ## 📂 Project Structure
 sql-etl-mini-pipeline/
 │
@@ -32,7 +32,7 @@ sql-etl-mini-pipeline/
 │ └── stored_procedures.sql
 │
 └── README.md
-
+```
 
 ---
 
@@ -57,23 +57,23 @@ sql-etl-mini-pipeline/
 ---
 
 ## ▶️ How to Run
-cd etl
-python etl_load.py
+- cd etl
+- python etl_load.py
 
-Expected Output:
-Loading stg_employees...
-Loading stg_salaries...
-Loading stg_attendance...
-ETL completed successfully
+## Expected Output:
+- Loading stg_employees...
+- Loading stg_salaries...
+- Loading stg_attendance...
+- ETL completed successfully
 
 📊 Sample Use Cases
-HR analytics
-Payroll processing
-Attendance tracking
-ETL pipeline demonstration for interviews
+- HR analytics
+- Payroll processing
+- Attendance tracking
+- ETL pipeline demonstration for interviews
 
 🚀 Future Enhancements
-Incremental data loads
-Logging and error handling
-Scheduling using Airflow
-Dockerization
+- Incremental data loads
+- Logging and error handling
+- Scheduling using Airflow
+- Dockerization
