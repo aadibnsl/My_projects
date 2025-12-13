@@ -1,12 +1,12 @@
 # SQL + Python ETL Mini Data Pipeline
 
-## 📌 Project Overview
+## Project Overview
 This project demonstrates a simple end-to-end ETL (Extract, Transform, Load) pipeline using **Python, Pandas, and MySQL**.  
 It simulates a real-world data engineering workflow similar to enterprise EDW pipelines.
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 - Python 3.13
 - Pandas
 - MySQL
@@ -14,8 +14,9 @@ It simulates a real-world data engineering workflow similar to enterprise EDW pi
 - CSV files as source data
 
 ---
+
+## Project Structure
 ```
-## 📂 Project Structure
 sql-etl-mini-pipeline/
 │
 ├── data/
@@ -36,7 +37,7 @@ sql-etl-mini-pipeline/
 
 ---
 
-## 🔄 ETL Flow
+## ETL Flow
 1. **Extract**
    - Read CSV files using Pandas
    - Handle encoding and delimiter issues
@@ -56,7 +57,7 @@ sql-etl-mini-pipeline/
 
 ---
 
-## ▶️ How to Run
+## How to Run
 - cd etl
 - python etl_load.py
 
@@ -66,13 +67,13 @@ sql-etl-mini-pipeline/
 - Loading stg_attendance...
 - ETL completed successfully
 
-📊 Sample Use Cases
+## Sample Use Cases
 - HR analytics
 - Payroll processing
 - Attendance tracking
 - ETL pipeline demonstration for interviews
 
-🚀 Future Enhancements
+## Future Enhancements
 - Incremental data loads
 - Logging and error handling
 - Scheduling using Airflow
