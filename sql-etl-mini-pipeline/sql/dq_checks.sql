@@ -1,4 +1,4 @@
-############################# DQ VIEWS ###################################
+/*############################# DQ VIEWS ###################################*/
 
 CREATE OR REPLACE VIEW dq_duplicate_employees AS
 SELECT emp_id, COUNT(*) AS cnt
