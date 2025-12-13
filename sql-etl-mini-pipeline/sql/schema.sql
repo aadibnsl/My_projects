@@ -1,7 +1,7 @@
 CREATE DATABASE mini_pipeline;
 USE mini_pipeline;
 
-####################### STAGE TABLES ###################################
+/*####################### STAGE TABLES ###################################*/
 
 CREATE TABLE stg_employees (
     emp_id INT,
@@ -24,7 +24,7 @@ CREATE TABLE stg_attendance (
     status CHAR(1)
 );
 
-####################### FINAL TABLES ###################################
+/*####################### FINAL TABLES ###################################*/
 
 CREATE TABLE dim_employee (
     emp_id INT PRIMARY KEY,
